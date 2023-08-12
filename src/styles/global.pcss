@@ -1,0 +1,115 @@
+@import '@unocss/reset/normalize.css';
+@import '@unocss/reset/sanitize/sanitize.css';
+@import '@unocss/reset/sanitize/assets.css';
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(249,115,22);
+    border: 0px none rgb(79, 36, 7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #000000;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(79, 36, 7);
+    border: 0px none #ffffff;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #666666;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #333333;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+:root {
+    --c-bg-light: #e7d7d7;
+    --c-bg-dark: #f7f9ff;
+}
+html {
+ cursor: none;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 2em;
+
+    .section {
+        margin-bottom: auto;
+    }
+}
+
+.ff-emoji {
+    font-family: 'Noto Color Emoji', sans-serif;
+}
+
+code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+ul, ol, nav {
+    li a {
+        transition: color .1s ease-in-out, background-color .1s ease-in-out;
+    }
+}
+
+.splide {
+    &__content {
+        top: auto;
+        bottom: 2em;
+        right: 0;
+        position: absolute;
+    }
+
+    &__slide {
+        position: relative;
+    }
+
+    &__pagination--custom {
+        top: 2em;
+        left: 50% !important;
+        bottom: auto !important;
+
+        button {
+            width: auto;
+            height: auto;
+            padding: 4px 8px;
+            background: rgb(57, 57, 59);
+            color: whitesmoke;
+            opacity: 1;
+            border-radius: 3px;
+            font-size: 2em;
+        }
+    }
+}
+
+.splide .splide__pagination__page.is-active {
+    background: rgba(249,115,22);
+}

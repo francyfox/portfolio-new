@@ -1,0 +1,17 @@
+---
+const { data = [] } = Astro.props
+//Astro.url.pathname
+const linkClass = (path) => (Astro.url.pathname === path)
+    ? "flex bg-amber/35 dark:text-white pointer-events-none color-black  border-rd p-3"
+    : "flex bg-black/85 hover:bg-amber hover:color-black border-rd p-3"
+---
+<nav class="flex gap-2 color-white text-xl border-rd list-none">
+    { data.map((page) =>
+            <li>
+                <a href={page.link} class={linkClass(page.link)}>
+                    {page.name}
+                </a>
+            </li>
+    )}
+
+</nav>

@@ -1,0 +1,27 @@
+---
+import CvSection from 'src/components/cvSection.astro';
+import Layout    from 'src/layouts/Layout.astro';
+import CvSlider from '@components/cvSlider.astro';
+
+import { works } from 'src/porfrolio.works';
+---
+
+<script>
+    import { randomBadgeColors } from 'src/utils/randomBadgeColors';
+
+    randomBadgeColors()
+</script>
+
+<Layout title="Кейсы" class="bg-amber">
+    <CvSection>
+        <div class="flex my-5">
+            <div class="content">
+                <h1 class="text-3xl text-gray-900 dark:text-gray-300 mb-8">
+                    Кейсы
+                </h1>
+
+                <CvSlider data={works}/>
+            </div>
+        </div>
+    </CvSection>
+</Layout>

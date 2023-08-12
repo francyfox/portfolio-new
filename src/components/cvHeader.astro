@@ -1,0 +1,35 @@
+---
+import CvNav from '@components/cvNav.astro';
+import CvThemeToogle from '@components/cvThemeToogle.astro';
+
+const pages = [
+    {
+        name: 'Обо мне',
+        link: '/',
+    },
+    {
+        name: 'Кейсы',
+        link: '/case',
+    },
+    {
+        name: 'Контакты',
+        link: '/contacts',
+    },
+];
+
+---
+<header class="py-5">
+    <div class="container mx-a">
+        <div class="flex flex-wrap justify-between gap-5 px-5 xl:px-0">
+            <a href="/" class="logo text-gray-900 dark:text-gray-300 text-3xl xl:text-5xl">
+                G.Danil
+            </a>
+
+            <div class="flex flex-wrap items-center gap-5">
+                <CvThemeToogle/>
+                <CvNav data={ pages }/>
+            </div>
+
+        </div>
+    </div>
+</header>

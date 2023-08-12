@@ -1,0 +1,41 @@
+---
+import CvSection from '@components/cvSection.astro';
+import Layout              from 'src/layouts/Layout.astro';
+import CvEmoji from '@components/emoji-music-captcha/cvEmoji.astro';
+---
+<Layout title="Контакты" class="bg-amber">
+    <CvSection>
+        <div class="flex my-5">
+            <div class="content">
+                <h1 class="text-3xl text-gray-900 dark:text-gray-300 mb-8">
+                    Контакты
+                </h1>
+
+                <p class="text-2xl text-gray-900 dark:text-gray-300 mb-3">
+                    <span># <a href="https://drive.google.com/file/d/1iqnVri9oDR7SJNOPNJY1pjV-makTbHCL/view?usp=sharing" target="_blank" class="underline hover:no-underline">CV</a></span>
+                    |
+                    # <a href="https://hh.kz/resume/1a91a626ff044cf3650039ed1f414e65743168" target="_blank" class="underline hover:no-underline">HeadHunter</a>
+                    |
+                    # <a href="https://github.com/francyfox" class="underline hover:no-underline" target="_blank">Github</a>
+                </p>
+
+                <ul class="flex flex-wrap gap-3 list-unstyled text-2xl mb-5">
+                    <li>
+                        <a class="badge" href="mailto:7info7web@gmail.com">
+                            7info7web@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a class="badge badge__blue" href="https://t.me/francyfox">телеграм</a>
+                    </li>
+                    <li>
+                        <a class="badge badge__green" href="wa.link/m3r22n">whatsapp</a>
+                    </li>
+                </ul>
+
+                <CvEmoji/>
+
+            </div>
+        </div>
+    </CvSection>
+</Layout>
