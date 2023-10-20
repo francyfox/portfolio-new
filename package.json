@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^3.0.3",
     "@francyfox/emoji-music-captcha": "^1.0.4",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-url-hash": "^0.3.0",
