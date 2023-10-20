@@ -2,23 +2,23 @@
 import '@splidejs/splide/css';
 import { WorkItem } from 'src/porfrolio.works';
 import CvSkills     from 'src/components/cvSkills.astro';
-const { className = 'splide', data = []} = Astro.props as {
+const { className = 'splide', data = [] } = Astro.props as {
     data: WorkItem
-}
+};
 
 function modifyImage(str, mode) {
-    return str.replace("/upload/", `/upload/${mode}/`);
+    return str.replace('/upload/', `/upload/${ mode }/`);
 }
 ---
 
 <script>
-    import Splide from '@splidejs/splide';
+    import Splide      from '@splidejs/splide';
     import { URLHash } from '@splidejs/splide-extension-url-hash';
 
-    const splide = new Splide( '.splide', {
+    const splide = new Splide('.splide', {
         width: '100%',
         height: '100%',
-        type   : 'fade',
+        type: 'fade',
         perPage: 1,
         paginationKeyboard: true,
         interval: 2000,
@@ -26,44 +26,45 @@ function modifyImage(str, mode) {
         keyboard: true,
         arrows: false,
         lazyLoad: 'nearby',
-        wheel    : true,
+        wheel: true,
     });
 
-    splide.on( 'pagination:mounted', function ( data ) {
-        data.list.classList.add( 'splide__pagination--custom' );
+    splide.on('pagination:mounted', function (data) {
+        data.list.classList.add('splide__pagination--custom');
 
-        data.items.forEach( function ( item ) {
-            item.button.textContent = String( item.page + 1 );
-        } );
-    } );
+        data.items.forEach(function (item) {
+            item.button.textContent = String(item.page + 1);
+        });
+    });
 
     splide.mount({
-        URLHash
+        URLHash,
     });
 </script>
-<div class={className} aria-label="Cases">
+<div class={ className } aria-label="Cases">
     <div class="splide__track">
         <ul class="splide__list">
             { data.map((slide, index) =>
-                    <li class="splide__slide" data-splide-hash={`slide${index}`}>
-                        <img src={modifyImage(slide.poster, 'f_auto,w_1000,h_500,c_scale/')}
-                             title={slide.title}
+                    <li class="splide__slide" data-splide-hash={ `slide${ index }` }>
+                        <img src={ modifyImage(slide.poster, 'f_auto,w_1000,h_500,c_scale/') }
+                             title={ slide.title }
                              class="w-a mb-5 border-rd"
-                             alt={slide.title}
+                             alt={ slide.title }
                         />
                         <div class="splide__content">
                             <div class="text-lg md:text-3xl mb-3">{ slide.title }</div>
-                            <CvSkills data={slide.tags}/>
+                            <CvSkills data={ slide.tags }/>
 
                             <div class="bio pt-2">
                                 { slide.bio }
                             </div>
                             <br>
                             <br>
-                            <a class="text-lg md:text-2xl badge" rel="noreferrer noopener" target="_blank" href={slide.url}>Website</a>
+                            <a class="text-lg md:text-2xl badge" rel="noreferrer noopener" target="_blank"
+                               href={ slide.url }>Website</a>
                         </div>
-                    </li>
-            )}
+                    </li>,
+            ) }
         </ul>
     </div>
 </div>
@@ -105,6 +106,6 @@ function modifyImage(str, mode) {
     }
 
     .splide .splide__pagination__page.is-active {
-        background: rgba(249,115,22);
+        background: rgba(249, 115, 22);
     }
 </style>

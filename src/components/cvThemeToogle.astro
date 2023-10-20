@@ -1,34 +1,34 @@
 ---
-const cvTheme = Astro.cookies.get('cvTheme')
-const isDarkMode = cvTheme ? cvTheme.value === '1' : false
-const attrs = isDarkMode ? { checked: true } : {}
+const cvTheme = Astro.cookies.get('cvTheme');
+const isDarkMode = cvTheme ? cvTheme.value === '1' : false;
+const attrs = isDarkMode ? { checked: true } : {};
 ---
 
 <script>
     import { setCookie } from 'src/utils/cookie';
 
-    const body = document.body
-    const checkbox = document.querySelector('#themeMode') as HTMLInputElement
-    const text = document.querySelector('#themeText')
-    const emojiCaptcha = document.querySelector('emoji-music-recaptcha')
+    const body = document.body;
+    const checkbox = document.querySelector('#themeMode') as HTMLInputElement;
+    const text = document.querySelector('#themeText');
+    const emojiCaptcha = document.querySelector('emoji-music-recaptcha');
 
     function trigger(checked: boolean) {
         if (!checked) {
-            text.textContent = 'Light mode'
-            body.classList.remove('dark')
-            setCookie('cvTheme', '0', {'max-age': 3600})
-            emojiCaptcha!.removeAttribute('dark')
+            text.textContent = 'Light mode';
+            body.classList.remove('dark');
+            setCookie('cvTheme', '0', { 'max-age': 3600 });
+            emojiCaptcha!.removeAttribute('dark');
         } else {
-            text.textContent = 'Dark mode'
-            body.classList.add('dark')
-            setCookie('cvTheme', '1', {'max-age': 3600})
-            emojiCaptcha!.setAttribute('dark', 'true')
+            text.textContent = 'Dark mode';
+            body.classList.add('dark');
+            setCookie('cvTheme', '1', { 'max-age': 3600 });
+            emojiCaptcha!.setAttribute('dark', 'true');
         }
     }
 
     checkbox.onchange = function () {
-        trigger((this as HTMLInputElement).checked)
-    }
+        trigger((this as HTMLInputElement).checked);
+    };
 </script>
 
 <label class="relative inline-flex items-center cursor-pointer">

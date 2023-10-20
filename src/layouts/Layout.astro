@@ -1,14 +1,14 @@
 ---
-import CvHeader from 'src/components/cvHeader.astro';
-import CvFooter   from 'src/components/cvFooter.astro';
-import CvMouseDevil from 'src/components/mouseDevil/cvMouseDevil.astro'
+import CvHeader     from 'src/components/cvHeader.astro';
+import CvFooter     from 'src/components/cvFooter.astro';
+import CvMouseDevil from 'src/components/mouseDevil/cvMouseDevil.astro';
 export interface Props {
-	title: string;
+    title: string;
 }
 
-const { title = 'Page', className = ''} = Astro.props;
-const cvTheme = Astro.cookies.get('cvTheme')
-const isDarkMode = cvTheme ? cvTheme.value === '1' : false
+const { title = 'Page', className = '' } = Astro.props;
+const cvTheme = Astro.cookies.get('cvTheme');
+const isDarkMode = cvTheme ? cvTheme.value === '1' : false;
 ---
 
 <script>
@@ -17,28 +17,28 @@ const isDarkMode = cvTheme ? cvTheme.value === '1' : false
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="/src/fonts/webfonts.8ebeca12.css">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={ Astro.generator }/>
+    <link rel="stylesheet" href="/src/fonts/webfonts.8ebeca12.css">
 
-		<title>{title}</title>
-	</head>
-	<body class={isDarkMode ? 'dark' : ''}>
-		<CvMouseDevil/>
-		<div class="anim">
-			<div class="anim--circle"></div>
-		</div>
-		<div id="app" class="bg-amber/5 dark:bg-black/78">
-			<CvHeader/>
-			<slot />
-			<CvFooter/>
-		</div>
-	</body>
+    <title>{ title }</title>
+</head>
+<body class={ isDarkMode ? 'dark' : '' }>
+<CvMouseDevil/>
+<div class="anim">
+    <div class="anim--circle"></div>
+</div>
+<div id="app" class="bg-amber/5 dark:bg-black/78">
+    <CvHeader/>
+    <slot/>
+    <CvFooter/>
+</div>
+</body>
 </html>
 <style is:global lang="postcss">
-	@import "../styles/global.pcss";
+    @import "../styles/global.pcss";
 </style>

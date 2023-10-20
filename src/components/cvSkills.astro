@@ -1,8 +1,8 @@
 ---
-const { className = 'flex flex-wrap gap-2', data = []} = Astro.props
+const { className = 'flex flex-wrap gap-2', data = [] } = Astro.props;
 ---
-<ul class="flex flex-wrap gap-2" class={className}>
+<ul class="flex flex-wrap gap-2" class={ className }>
     { data.map((skill) =>
-            <li><a href="#" class="badge badge__random">{skill}</a></li>
-    )}
+            <li><a href="#" class="badge badge__random">{ skill }</a></li>,
+    ) }
 </ul>

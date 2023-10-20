@@ -1,7 +1,7 @@
 ---
 import CvSection from 'src/components/cvSection.astro';
 import Layout    from 'src/layouts/Layout.astro';
-import CvSlider from '@components/cvSlider.astro';
+import CvSlider  from '@components/cvSlider.astro';
 
 import { works } from 'src/porfrolio.works';
 ---
@@ -9,7 +9,7 @@ import { works } from 'src/porfrolio.works';
 <script>
     import { randomBadgeColors } from 'src/utils/randomBadgeColors';
 
-    randomBadgeColors()
+    randomBadgeColors();
 </script>
 
 <Layout title="Кейсы" class="bg-amber">
@@ -20,7 +20,7 @@ import { works } from 'src/porfrolio.works';
                     Кейсы
                 </h1>
 
-                <CvSlider data={works}/>
+                <CvSlider data={ works }/>
             </div>
         </div>
     </CvSection>

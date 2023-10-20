@@ -1,31 +1,34 @@
 ---
-const cvTheme = Astro.cookies.get('cvTheme')
-const isDarkMode = cvTheme ? cvTheme.json() === 1 : false
-const attrs = isDarkMode ? { dark: true } : {}
+import emojiUrl from '@francyfox/emoji-music-captcha/dist/emoji-music-recaptcha.js?url'
+const cvTheme = Astro.cookies.get('cvTheme');
+const isDarkMode = cvTheme ? cvTheme.json() === 1 : false;
+const attrs = isDarkMode ? { dark: true } : {};
 ---
 <p class="text-gray-900 text-lg dark:text-gray-300 mb-5">Alert! RoboPass! Complete task to continue</p>
 <emoji-secret></emoji-secret>
 <emoji-music-recaptcha {...attrs}></emoji-music-recaptcha>
 
-<script is:inline src="/node_modules/@francyfox/emoji-music-captcha/dist/emoji-music-recaptcha.js"></script>
+<script is:inline src={emojiUrl}></script>
 
 <script>
     const el = document.querySelector('emoji-music-recaptcha');
-    const form = document.getElementById('formFeedback')
+    const form = document.getElementById('formFeedback');
     el.addEventListener('captchaValidate', function (event) {
-        const [isFailed] = event.detail
+        const [isFailed] = event.detail;
         if (!isFailed) {
-            form.style.display = 'block'
+            form.style.display = 'block';
         }
-    })
+    });
 </script>
 <style is:global lang="postcss">
     .mouse-devil {
         display: none !important;
     }
+
     emoji-secret {
         @apply flex text-5xl mb-20px;
     }
+
     .soundHeader__title {
         display: none !important;
     }
