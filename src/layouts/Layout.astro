@@ -2,6 +2,7 @@
 import CvHeader     from 'src/components/cvHeader.astro';
 import CvFooter     from 'src/components/cvFooter.astro';
 import CvMouseDevil from 'src/components/mouseDevil/cvMouseDevil.astro';
+import fontUrl from '/src/fonts/webfonts.8ebeca12.css?url'
 export interface Props {
     title: string;
 }
@@ -23,9 +24,10 @@ const isDarkMode = cvTheme ? cvTheme.value === '1' : false;
     <meta name="viewport" content="width=device-width"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
     <meta name="generator" content={ Astro.generator }/>
-    <link rel="stylesheet" href="/src/fonts/webfonts.8ebeca12.css">
+    <link rel="stylesheet" href={fontUrl}>
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <title>{ title }</title>
+    <title>{title}</title>
 </head>
 <body class={ isDarkMode ? 'dark' : '' }>
 <CvMouseDevil/>

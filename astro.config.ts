@@ -9,6 +9,7 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://hellizart.netlify.app',
   server: {
     host: '0.0.0.0',
     port: 3000
@@ -18,7 +19,14 @@ export default defineConfig({
   compressHTML: true,
   integrations: [UnoCSS({
     injectReset: true
-  }), sitemap(), vue({
+  }),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      entryLimit: 10000,
+    }),
+    vue({
     appEntrypoint: '/src/_app'
   })],
   vite: {
