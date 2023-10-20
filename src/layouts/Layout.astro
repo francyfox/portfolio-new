@@ -7,6 +7,8 @@ export interface Props {
 }
 
 const { title = 'Page', className = ''} = Astro.props;
+const cvTheme = Astro.cookies.get('cvTheme')
+const isDarkMode = cvTheme ? cvTheme.value === '1' : false
 ---
 
 <script>
@@ -25,7 +27,7 @@ const { title = 'Page', className = ''} = Astro.props;
 
 		<title>{title}</title>
 	</head>
-	<body class="dark">
+	<body class={isDarkMode ? 'dark' : ''}>
 		<CvMouseDevil/>
 		<div class="anim">
 			<div class="anim--circle"></div>

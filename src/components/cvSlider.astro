@@ -41,26 +41,70 @@ function modifyImage(str, mode) {
         URLHash
     });
 </script>
-<div class={className} aria-label="Splide Basic HTML Example">
+<div class={className} aria-label="Cases">
     <div class="splide__track">
         <ul class="splide__list">
             { data.map((slide, index) =>
                     <li class="splide__slide" data-splide-hash={`slide${index}`}>
                         <img src={modifyImage(slide.poster, 'f_auto,w_1000,h_500,c_scale/')}
                              title={slide.title}
-                             class="mb-5 border-rd"
-                        >
-                        <div class="splide__content text-lg max-w-4xl bg-dark/80 color-white/90 border-rd p-3">
-                            <div class="text-3xl mb-3">{ slide.title }</div>
+                             class="w-a mb-5 border-rd"
+                             alt={slide.title}
+                        />
+                        <div class="splide__content">
+                            <div class="text-lg md:text-3xl mb-3">{ slide.title }</div>
                             <CvSkills data={slide.tags}/>
-                            { slide.bio }
+
+                            <div class="bio pt-2">
+                                { slide.bio }
+                            </div>
                             <br>
                             <br>
-                            <a class="text-2xl badge" rel="noreferrer noopener" target="_blank" href={slide.url}>Website</a>
+                            <a class="text-lg md:text-2xl badge" rel="noreferrer noopener" target="_blank" href={slide.url}>Website</a>
                         </div>
                     </li>
-
             )}
         </ul>
     </div>
 </div>
+
+<style is:global lang="postcss">
+    .splide {
+        &__content {
+            @apply text-sm md:text-lg bg-dark/80 color-white/90 border-rd p-3;
+
+            @media (min-width: 768px) {
+                @apply max-w-full max-w-4xl absolute top-a bottom-[2em] right-0;
+            }
+        }
+
+        &__slide {
+            position: relative;
+        }
+
+        &__pagination--custom {
+            top: 2em;
+            left: 50% !important;
+            bottom: auto !important;
+
+            button {
+                width: auto;
+                height: auto;
+                padding: 4px 8px;
+                background: rgb(86, 86, 89);
+                color: whitesmoke;
+                opacity: 1;
+                border-radius: 3px;
+                font-size: 1em;
+
+                @media (min-width: 768px) {
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    .splide .splide__pagination__page.is-active {
+        background: rgba(249,115,22);
+    }
+</style>

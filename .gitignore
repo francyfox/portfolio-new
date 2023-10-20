@@ -1,5 +1,6 @@
 # build output
 dist/
+.vite-inspect
 
 # generated types
 .astro/
@@ -17,5 +18,6 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
+# specific files
 .DS_Store
+.vscode

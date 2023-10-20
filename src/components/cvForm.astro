@@ -1,0 +1,68 @@
+---
+
+---
+<form id="formFeedback" method="post" action="https://api.slapform.com/GuavBBpkw" class="hidden border-1 border-[#00000029] dark:border-[#dedede29] rounded p-[0.8em]">
+    <div class="mb-4">
+        <label class="block text-gray-900 dark:text-gray-300 text-sm font-bold mb-2" for="email">
+            Email<span class="text-red">*</span>
+        </label>
+        <input class="bg-dark/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+               id="email"
+               type="email"
+               name="email"
+               placeholder="acme@inc.com"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,30}$"
+               required
+        >
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-900 dark:text-gray-300 text-sm font-bold mb-2" for="fullname">
+            FullName<span class="text-red">*</span>
+        </label>
+        <input class="bg-dark/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+               id="fullname"
+               name="fullname"
+               type="text"
+               placeholder="John Doe"
+               required
+        >
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-900 dark:text-gray-300 text-sm font-bold mb-2" for="telegram">
+            Telegram
+        </label>
+        <input class="bg-dark/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+               id="telegram"
+               name="telegram"
+               type="text"
+               placeholder="@john"
+        >
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-900 dark:text-gray-300 text-sm font-bold mb-2" for="company">
+            Company
+        </label>
+        <input class="bg-dark/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+               id="company"
+               name="company"
+               type="text"
+               placeholder="Acme Inc"
+        >
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-900 dark:text-gray-300 text-sm font-bold mb-2" for="message">
+            Message<span class="text-red">*</span>
+        </label>
+        <textarea class="bg-dark/3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline text-left"
+                  id="message"
+                  name="message"
+                  placeholder=""
+                  required
+        ></textarea>
+    </div>
+    <div class="flex items-center justify-between">
+        <button type="submit" class="flex px-5 justify-center text-white bg-black/85 hover:bg-amber hover:color-black border-rd p-3">
+            Send
+        </button>
+    </div>
+</form>

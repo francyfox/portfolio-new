@@ -2,11 +2,12 @@
 import CvSection from '@components/cvSection.astro';
 import Layout              from 'src/layouts/Layout.astro';
 import CvEmoji from '@components/emoji-music-captcha/cvEmoji.astro';
+import CvForm from 'src/components/cvForm.astro';
 ---
 <Layout title="Контакты" class="bg-amber">
     <CvSection>
-        <div class="flex my-5">
-            <div class="content">
+        <div class="flex flex-wrap items-end my-5 gap-10">
+            <div class="content max-w-2xl">
                 <h1 class="text-3xl text-gray-900 dark:text-gray-300 mb-8">
                     Контакты
                 </h1>
@@ -34,7 +35,9 @@ import CvEmoji from '@components/emoji-music-captcha/cvEmoji.astro';
                 </ul>
 
                 <CvEmoji/>
-
+            </div>
+            <div class="w-full max-w-sm">
+                <CvForm />
             </div>
         </div>
     </CvSection>

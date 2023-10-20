@@ -21,11 +21,17 @@ export default defineConfig({
         'badge': 'px-1 color-white/90 transition-colors bg-orange-5 hover:bg-orange-6 border-rd',
         'badge__blue': 'bg-blue-5 hover:bg-blue-6',
         'badge__green': 'bg-green-5 hover:bg-green-6',
-        'badge__random': 'text-shadow-xl',
+        'badge__random': 'text-shadow-lg',
     },
     theme: {
-        colors: {
-            // ...
+        container: {
+            padding: {
+                'DEFAULT': '15px',
+                '2xl': '0',
+                'xl': '2em',
+                'md': '1em',
+                'sm': '1em',
+            }
         }
     },
     presets: [

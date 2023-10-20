@@ -1,37 +1,40 @@
 ---
-
+const cvTheme = Astro.cookies.get('cvTheme')
+const isDarkMode = cvTheme ? cvTheme.value === '1' : false
+const attrs = isDarkMode ? { checked: true } : {}
 ---
 
 <script>
+    import { setCookie } from 'src/utils/cookie';
+
     const body = document.body
     const checkbox = document.querySelector('#themeMode') as HTMLInputElement
     const text = document.querySelector('#themeText')
-    const isChecked = (window.localStorage.getItem('cvTheme') === '1') ? true : false
+    const emojiCaptcha = document.querySelector('emoji-music-recaptcha')
 
     function trigger(checked: boolean) {
         if (!checked) {
             text.textContent = 'Light mode'
             body.classList.remove('dark')
-            window.localStorage.setItem('cvTheme', '0')
+            setCookie('cvTheme', '0', {'max-age': 3600})
+            emojiCaptcha!.removeAttribute('dark')
         } else {
             text.textContent = 'Dark mode'
             body.classList.add('dark')
-            window.localStorage.setItem('cvTheme', '1')
+            setCookie('cvTheme', '1', {'max-age': 3600})
+            emojiCaptcha!.setAttribute('dark', 'true')
         }
     }
 
-    checkbox.checked = isChecked
-    trigger(checkbox.checked)
-
     checkbox.onchange = function () {
-        trigger(this.checked)
+        trigger((this as HTMLInputElement).checked)
     }
 </script>
 
 <label class="relative inline-flex items-center cursor-pointer">
-    <input type="checkbox" id="themeMode" class="sr-only peer" checked>
+    <input type="checkbox" id="themeMode" class="sr-only peer" { ...attrs }>
     <div class="w-11 h-6 bg-gray-800 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300 dark:peer-focus:ring-amber-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-amber/35"></div>
     <span id="themeText" class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-        Dark mode
+        { isDarkMode ? 'Dark mode' : 'Light mode' }
     </span>
 </label>
