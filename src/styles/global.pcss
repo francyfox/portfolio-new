@@ -55,7 +55,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    gap: 2em;
+    gap: 0;
+
+    @screen md {
+        gap: 2em;
+    }
 
     .section {
         margin-bottom: auto;
