@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^3.0.3",
-    "@francyfox/emoji-music-captcha": "^1.0.4",
+    "@francyfox/emoji-music-captcha": "^1.0.5",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-url-hash": "^0.3.0",
     "astro": "^3.3.2",
     "astro-google-fonts-optimizer": "^0.2.2",
     "slapform": "^2.0.9",
-    "vue": "^3.3.5",
+    "vue": "^3.3.6",
     "vue-select": "^3.20.2"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "@unocss/reset": "^0.56.5",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "eslint-plugin-astro": "^0.29.1",
     "postcss-nested": "^6.0.1",
     "unocss": "^0.56.5",
